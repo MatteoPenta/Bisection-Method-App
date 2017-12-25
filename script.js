@@ -89,7 +89,6 @@ function startBisection() {
 var funcOptions = {
   target: '#plot',
   grid: true,
-  width: 600,
   height: 450,
   data: [{
     fn: func.raw,
