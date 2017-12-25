@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+}
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+main {
+  padding-top: 20px;
+  width: 100%;
+  margin: 220px 0 60px;
+  z-index: 99;
+  background: white;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 8px rgba(38,50,56, .7);
+}
+footer {
+  font-size: .9em;
+  text-align: center;
+  background: #90A4AE;
+  color: #FFF;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  z-index: -99;
+}
+footer p {
+  margin: 0 30px;
+  letter-spacing: .6pt;
+  padding: 20px 0;
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+  color: #B3E5FC;
+}
+h1 {
+  padding: 100px 0 80px;
+  margin: 0;
+  font-size: 2.4em;
+  text-align: center;
+  box-shadow: 0 1px 8px rgb(38,50,56);
+  background: #90A4AE;
+  color: #FFF;
+  text-shadow: 0 2px 4px rgba(38,50,56,.8);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -99;
+}
+input[type=text] {
+  width: 300px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+  outline: none;
+  font-family: monospace;
+  font-size: 1em;
+  padding: 7px;
+}
+input[type=range] {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+input {
+  padding: 6px;
+}
+form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.main {
+  margin: 5% auto 10%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.form-row {
+  padding: 10px 0;
+}
+
+/* Side section */
+#descr-par {
+  position: relative;
+  top: 15px;
+}
+
+.right-par {
+  width: 500px;
+  height: 400px;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+.par-header {
+  font-size: 1.2em;
+}
+.right-par ul {
+  font-size: 0;
+  list-style: circle;
+}
+
+#example-list {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100px;
+  justify-content: space-between;
+  align-content: space-between;
+  /* box-shadow: 0 0 1px black; */
+}
+.func-example {
+  flex-basis: 35%;
+  text-align: center;
+}
+.func-example-expl {
+  flex-basis: 65%;
+}
+
+
+.right-par li, #example-list {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+#sol-par {
+  display: none;
+  position: relative;
+  top: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+#sol-span {
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #B71C1C;
+}
+/* END Side section */
+
+/* Sliders */
+.range-sliders {
+  padding: 10px;
+}
+.slider-label {
+  margin-right: 30px;
+}
+.range-sliders input[type=button] {
+  width: 80px;
+}
+/* END Sliders */
+
+/* Buttons */
+button {
+  outline: none;
+}
+.small-btn {
+  width: 70px;
+  height: 25px;
+  border-radius: 5px;
+}
+.big-btn {
+  width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 1.1em;
+  border-radius: 5px;
+}
+/* END Buttons */

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Plot</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.18.0/math.min.js"></script>
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <!-- Function Plot -->
+    <script src="https://wzrd.in/standalone/function-plot@1.18.1"></script>
+
+  </head>
+  <body>
+
+    <h1>Metodo di Bisezione</h1>
+
+    <main>
+      <div class="wrapper">
+        <form id="form">
+          <div class="form-row">
+            <label for="eq">f(x) = </label>
+            <input type="text" id="eq" value="x + log(x,2)" >
+            <button class="small-btn" type="submit">Disegna</button>
+          </div>
+          <div class="form-row">
+            <label for="range-sliders">Estremi sull'asse x:</label>
+            <div class="range-sliders">
+              <label for="xmin">Minimo:</label>
+              <input type="range" id="xmin" min="-5" max="5" step="0.5">
+              <label class="slider-label" id="xmin-label" for="xmin"></label>
+              <label for="xmax">Massimo:</label>
+              <input type="range" id="xmax" min="-5" max="5" step="0.5">
+              <label class="slider-label" id="xmax-label" for="xmax"></label>
+              <button type="button" class="small-btn" id="imposta-btn">Imposta</button>
+              <button type="button" class="small-btn" id="rimuovi-btn">Rimuovi</button>
+            </div>
+            <button type="button" id="bisection-btn" class="big-btn">Esegui</button>
+
+          </div>
+
+        </form>
+
+
+        <div class="main">
+
+          <div id="plot"></div>
+          <div class="right-par">
+            <div id="sol-par">
+              f(x) = 0 per
+              <br>
+              x = <span id="sol-span">0.64</span>
+            </div>
+
+            <div id="descr-par">
+              <p class="par-header">Come funziona</p>
+              <ul>
+                <li>Disegnare una funzione</li>
+                <li>Impostare estremi sull'asse x</li>
+                <li>Premere il pulsante "Esegui" per ricercare il valore di x
+                  tale che f(x) = 0 nell'intervallo specificato</li>
+              </ul>
+              <p class="par-header">Esempi di operatori matematici</p>
+              <div id="example-list">
+                <span class="func-example">x^2</span>
+                <span class="func-example-expl">x elevato alla seconda</span>
+
+                <span class="func-example">log(x,2)</span>
+                <span class="func-example-expl">logaritmo naturale di x in base 2</span>
+
+                <span class="func-example">sqrt(x)</span>
+                <span class="func-example-expl">radice quadrata di x</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      <!-- Wrapper close -->
+      </div>
+    </main>
+
+
+    <footer>
+      <p>Grafico creato con: <a href="https://mauriciopoppe.github.io/function-plot/">Function Plot</a>
+      </p>
+      <p>Matteo Pentassuglia – 2017
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="text/javascript">
+      const xmin = document.getElementById("xmin");
+      const xmax = document.getElementById("xmax");
+      const xminLabel = document.getElementById("xmin-label");
+      const xmaxLabel = document.getElementById("xmax-label");
+      xminLabel.innerHTML = xmin.value;
+      xmaxLabel.innerHTML = xmax.value;
+      xmin.onchange = function(e) {
+        xminLabel.innerHTML = xmin.value;
+      };
+      xmax.onchange = function(e) {
+        xmaxLabel.innerHTML = xmax.value;
+      };
+
+      // Buttons click handlers
+      document.getElementById('imposta-btn').onclick = function() {
+        changeRange(xmin.value, xmax.value);
+      };
+      document.getElementById('rimuovi-btn').onclick = removeRange;
+      document.getElementById('bisection-btn').onclick = startBisection;
+
+    </script>
+  </body>
+</html>
