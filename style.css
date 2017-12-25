@@ -64,7 +64,7 @@ input[type=text] {
   margin-right: 10px;
   border-radius: 5px;
   border-style: none;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 2px rgb(0, 0, 0);
   outline: none;
   font-family: monospace;
   font-size: 1em;
