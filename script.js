@@ -10,6 +10,7 @@
 */
 
 var inputFunc = document.getElementById('eq').value;
+var isSolutionShown = false;
 
 // Runs math.eval to the compiled function, using the given value
 // to build a usable scope object
@@ -69,18 +70,21 @@ function bisection(a, b) {
 }
 
 function startBisection() {
-  // Controlla se esiston Estremi
-  if (extremes.length === 2) {
-    // Controlla se gli estremi hanno segno opposto
-    if (evalFunc(func.def, extremes[0]) * evalFunc(func.def, extremes[1]) < 0) {
-      var sol = [bisection(extremes[0], extremes[1]), 0];
-      drawSolution(sol);
+  if (!isSolutionShown) {
+    // Controlla se esiston Estremi
+    if (extremes.length === 2) {
+      // Controlla se gli estremi hanno segno opposto
+      if (evalFunc(func.def, extremes[0]) * evalFunc(func.def, extremes[1]) < 0) {
+        var sol = [bisection(extremes[0], extremes[1]), 0];
+        drawSolution(sol);
+      }
+      else {
+        alert("La funzione non assume valori di segno opposto agli estremi.");
+      }
+    } else {
+      alert("Per avviare il metodo di bisezione occorre impostare degli estremi alla funzione");
     }
-    else {
-      alert("La funzione non assume valori di segno opposto agli estremi.");
-    }
-  } else {
-    alert("Per avviare il metodo di bisezione occorre impostare degli estremi alla funzione");
+
   }
 
 }
@@ -113,6 +117,7 @@ function drawSolution(sol) {
   }
   document.getElementById('sol-span').innerHTML = sol[0].toFixed(2);
   $('#sol-par').animate({height: 'toggle'}, "slow");
+  isSolutionShown = true;
   drawFunc();
 }
 
@@ -121,6 +126,7 @@ function removeSolution() {
     if (funcOptions.data[1].points.length === 1) {
       funcOptions.data[1].points = [];
       $('#sol-par').animate({height: 'toggle'}, "slow");
+      isSolutionShown = false;
     }
   }
 }
