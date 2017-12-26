@@ -144,6 +144,7 @@ function drawFunc() {
 
 function changeRange(min, max) {
 
+  removeSolution();
   this.min = Number(min);
   this.max = Number(max);
 
