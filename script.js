@@ -184,11 +184,20 @@ function removeRange() {
   drawFunc();
 }
 
-document.getElementById('form').onsubmit = function(event) {
-  event.preventDefault();
+function updateFunc() {
   func.update(document.getElementById('eq').value);
   removeRange();
   drawFunc();
+}
+
+function applySelect() {
+  document.getElementById('eq').value = this.value;
+  updateFunc();
+}
+
+document.getElementById('form').onsubmit = function(event) {
+  event.preventDefault();
+  updateFunc();
 }
 
 drawFunc();
